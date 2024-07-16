@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка компании</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Компания</a>
+            <div class="navbar-links">
+                <a href="#about">О нас</a>
+                <a href="#services">Услуги</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+   
+    <section id="about" class="section-about">
+        <div class="container">
+            <p class="section-description">Мы - ведущая компания в нашей отрасли, предлагающая высококачественные продукты и услуги. Наша команда профессионалов всегда готова помочь вам в достижении ваших целей.</p>
+            <h2 class="section-title">О нас</h2>
+        </div>
+    </section>
+    <section id="services" class="section-service ">
+        <div class="container">
+            <h2 class="section-title">Услуги</h2>
+            <hr class="line">
+            <div class="services">
+                <div class="service" data-service="1">
+                    <i class="fa fa-truck service-icon"></i>
+                    <h3 class="service-title">услуга1</h3>
+                    <p class="service-description">Предоставляем профессиональные консультации для вашего бизнеса.</p>
+                </div>
+                <div class="service" data-service="2">
+                    <i class="fa fa-ship service-icon"></i>
+                    <h3 class="service-title">услуга2</h3>
+                    <p class="service-description">Разрабатываем проекты любой сложности и масштаба.</p>
+                </div>
+                <div class="service" data-service="3">
+                    <i class="fa fa-plane service-icon"></i>
+                    <h3 class="service-title">услуга3</h3>
+                    <p class="service-description">Обеспечиваем круглосуточную техническую поддержку.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contacts" class="section-contact ">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-list">
+                <p><i class="fa fa-map-marker-alt"></i> Адрес: ул. Пушкина дом калатушкина</p>
+                <p><i class="fa fa-phone"></i> Телефон: +371 20202020</p>
+                <p><i class="fa fa-envelope"></i> Email: info@example.com</p>
+            </div>
+          
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Компания. Все права защищены.</p>
+        </div>
+    </footer>
+    
+    <!-- Модальные окна для каждой услуги -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>услуга1</h2>
+            <p>Подробная информация об услуге 1.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>услуга2</h2>
+            <p>Подробная информация об услуге 2.</p>
+        </div>
+    </div>
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>услуга3</h2>
+            <p>Подробная информация об услуге 3.</p>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarLinks = document.querySelector('.navbar-links');
+
+        menuToggle.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Модальные окна
+        const services = document.querySelectorAll('.service');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+
+        services.forEach(service => {
+            service.addEventListener('click', () => {
+                const modalId = service.getAttribute('data-service');
+                document.getElementById(`modal${modalId}`).style.display = 'block';
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target.classList.contains('modal')) {
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
