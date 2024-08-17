@@ -47,62 +47,6 @@ body {
     color: #FE9E9E;
 }
 
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-color:#000;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    background-color: #FE9E9E;
-    color: #fff;
-    border: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #FE9E9E;
-}
-.section-about, .section-service, .section-contact {
-    padding: 4rem 1rem;
-    position: relative;
-}
 
 .section-about{
     background-color: #000;
@@ -119,14 +63,21 @@ body {
     width: 2px;
     height: 200px;
     background-color: #FE9E9E;
-    left: 57%;
+    left: 77%;
     transform: translateX(-50%);
 }
-
-.section-title {
+.sectionabout-title {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    text-align: center;
+    text-align: right;
+    letter-spacing: 0.1rem;
+    width: 50%;
+}
+
+.sectionservice-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
     letter-spacing: 0.1rem;
     width: 50%;
 }
@@ -185,6 +136,105 @@ body {
 .service-description {
     font-size: 1rem;
 }
+
+/* Секция Качество */
+.section-quality {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    height: 500px; /* Увеличиваем высоту секции */
+}
+
+.section-quality .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+
+
+.quality-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quality-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem; /* Увеличиваем расстояние между иконкой и текстом */
+}
+
+.quality-icon {
+    font-size: 2.5rem; /* Увеличиваем размер иконки */
+    color: #FE9E9E;
+}
+
+.quality-item-title {
+    font-size: 24px; /* Увеличиваем размер шрифта для заголовков */
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+}
+
+.quality-item-description {
+    font-size: 16px; /* Увеличиваем размер текста описания */
+    margin: 0;
+    color: #fff;
+    padding-bottom: 30px;
+}
+.line-quality{
+    border: 1px solid #FE9E9E;
+    height: 300px;
+    margin-left: 250px;
+}
+
+.sectionquality-title {
+    font-size: 40px; /* Увеличиваем размер заголовка */
+    text-align: right;
+    color: #fff;
+}
+
+
+@media (max-width: 1200px) {
+    .section-quality {
+        flex-direction: column;
+        padding: 100px 30px; /* Корректируем padding для мобильных устройств */
+        height: auto; /* Убираем фиксированную высоту для адаптивности */
+    }
+
+    .section-quality .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-quality::after {
+        width: 60%;
+        height: 2px;
+        left: 20%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .quality-content, .quality-title {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .quality-title {
+        margin-bottom: 2rem;
+    }
+}
+
+
 
 .section-contact .container{
     display: grid;
